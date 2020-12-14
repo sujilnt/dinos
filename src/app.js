@@ -1,45 +1,22 @@
-// Create Dino Constructor
+//import { getDinosList } from "./dino";
 
-// Create Dino Objects
-const dinos = new Dino();
-console.log(dinos);
-// Create Human Object
-const human = {};
-function load() {
-	function Dino() {
-		this.dinos = [];
-	}
+export const buttonId = document.getElementById("btn");
+export const form = document.getElementById("dino-compare");
+export const formElements = form.elements;
+export let human = {};
 
-	const dinos = new Dino();
-}
-// Use IIFE to get human data from form
-(() => {
-	const buttonId = document.getElementById("btn");
-	const formElements = document.getElementById("dino-compare").elements;
-	Array.prototype.forEach.call(formElements, element => {
-		console.log(element, element.name);
+const getInputFormVaues = inputFormElements => {
+	const humanInformation = {};
+	Array.prototype.forEach.call(inputFormElements, ({ name, value }) => {
+		humanInformation[name] = value;
 	});
-	buttonId.addEventListener("click", () => {
-		console.log("button is clicked");
-		Array.prototype.forEach.call(formElements, element => {
-			human[element.name] = element.value;
-		});
-	});
-})();
+	delete humanInformation[""];
+	return humanInformation;
+};
 
-// Create Dino Compare Method 1
-// NOTE: Weight in JSON file is in lbs, height in inches.
+const onSubmit = event => {
+	event.preventDefault();
+	human = getInputFormVaues(event.target.elements);
+};
 
-// Create Dino Compare Method 2
-// NOTE: Weight in JSON file is in lbs, height in inches.
-
-// Create Dino Compare Method 3
-// NOTE: Weight in JSON file is in lbs, height in inches.
-
-// Generate Tiles for each Dino in Array
-
-// Add tiles to DOM
-
-// Remove form from screen
-
-// On button click, prepare and display infographic
+form.addEventListener("submit", onSubmit);

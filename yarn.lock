@@ -2185,6 +2185,11 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
+din@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/din/-/din-0.3.0.tgz#25ef5bbed1157ea557d0af3aae8c6c92e3dbede6"
+  integrity sha512-T+3WGVx2dy3civfN+MdZE2R65koHjM1vLE6c2NAC3eJPt5YFMV0KWsuyEUbi57UgI56HqXfAgHNKp+g4U+eGwQ==
+
 doctrine@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-3.0.0.tgz#addebead72a6574db783639dc87a121773973961"

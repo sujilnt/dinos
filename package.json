@@ -12,13 +12,15 @@
 		"build-prod": "parcel build src/index.html"
 	},
 	"devDependencies": {
-		"parcel-bundler": "^1.12.4",
 		"@babel/core": "^7.12.10",
 		"@babel/preset-env": "^7.12.10",
 		"eslint": "^7.15.0",
-		"prettier": "^2.2.1",
 		"eslint-config-prettier": "^7.0.0",
-		"eslint-plugin-prettier": "^3.2.0"
+		"eslint-plugin-prettier": "^3.2.0",
+		"parcel-bundler": "^1.12.4",
+		"prettier": "^2.2.1"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"din": "^0.3.0"
+	}
 }
