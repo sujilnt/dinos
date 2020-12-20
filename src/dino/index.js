@@ -1,10 +1,11 @@
-import Dinos from "./dino.json";
+import { Dinos } from "./data.json";
 
 export class Dino {
-	constructor({ height, weight, diet }) {
+	constructor({ height, weight, diet, species }) {
 		this.height = height;
 		this.weight = weight;
 		this.diet = diet;
+		this.species = species;
 		console.log("plain", height, weight, diet);
 		console.log(this.height, this.weight, this.diet);
 	}
@@ -20,7 +21,8 @@ export class Dino {
 
 //console.log(Dinos);
 
-export function getDinosList() {
+export function getDinos() {
+	console.log("dinos", Dinos);
 	return Dinos.map(dino => new Dino(dino));
 }
 // Create Dino Compare Method 1
