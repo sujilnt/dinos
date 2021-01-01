@@ -1,4 +1,6 @@
 import { Dinos } from "./data.json";
+
+const subtract = (a,b) => a - b ; 
 export class Dino {
 	constructor({ height, weight, diet, species,option }) {
 		this.height = height;
@@ -6,15 +8,17 @@ export class Dino {
 		this.diet = diet;
 		this.species = species;
 		this.fact  = setfact(option);
-		//console.log("plain", height, weight, diet);
-		//console.log(this.height, this.weight, this.diet);
 	}
 
     setfact(option){
 		
 		switch(option){
-			case '1':
+			case 'height':
 				this.compareHeightAndSetFact(this.height)
+			case 'weight':
+				this.compareWeightAndSetFact(this.weight);
+			case 'diet':
+			     this.compareDietAndSetFact(this.diet)		
 		}
 	}
 	addFact(fact){
@@ -26,7 +30,7 @@ export class Dino {
 		if (this.height > height) {
 			fact = `I am taller than you by ${this.height - height} inches`;
 		} else if (this.height < height) {
-			fact = `You are taller than me by ${height - this.height} inches`;
+			fact = `You are taller than me by ${subtract(height,this.height)} inches`;
 		} else {
 			//swallow
 		}
@@ -35,9 +39,28 @@ export class Dino {
 
 	compareWeightAndSetFact(weight) {
 		//Weight in JSON file is in lbs,
-}
+		let fact = `Our weights are equal! ${weight}`;
+		if (this.weight> weight){
+			fact  = `I am weigh more than you by ${subtract(this.weight,weight)}`; 	
+		}else if(this.weight < weight){
+			fact  = `You weigh more than me by ${subtract(weight,this.weight)}`
+		}else{
+			// swallow 
+		}
+		return fact;
+	}
 
-//console.log(Dinos);
+	compareDietAndSetFact(diet){
+	    let fact = ' ';
+		if(this.diet === diet){
+          fact = `Our diets are same ${diet}`
+		} else{
+           fact =`Our diets are different `; 
+		}
+		return fact;
+	}
+
+
 
 export default function getDinos() {
 	console.log("dinos", Dinos);

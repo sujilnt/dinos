@@ -21,7 +21,6 @@ const addHumanInfoToGrid = (human, dinos) => {
 		name: human.name,
 		image: getImage(images["human"])
 	});
-
 	// inserting the human information at the center of the grid.
 	dinos.splice(Math.floor(dinos.length / 2), 0, humanInformation);
 	return dinos;
