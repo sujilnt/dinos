@@ -6,13 +6,14 @@ const getImage = url => {
 	return url.substring(1);
 };
 
-const gridItem = ({ name, image }) =>
+const gridItem = ({ name, image,fact }) =>
 	` <div class="grid-item">
 	  	<h3>${name}</h3>
 	  	<picture>
   			<source media="(min-width:350px)" srcset="${window.location.origin}/${image}">
   			<img src="${window.location.origin}/${image}" alt="Flowers" style="width:auto;">
 		</picture>
+		${fact ? `<p>${fact ? fact: '&nbsp;'}</p>`:  null}
 	</div>`;
 
 // inserting human information into the grid.
@@ -26,27 +27,22 @@ const addHumanInfoToGrid = (human, dinos) => {
 	return dinos;
 };
 
+// Add tiles of dinos and human to DOM
 export const loadGridItems = (dinos, humanInfo) => {
 	const dinosGrid = [];
+	// Generate Tiles for each Dino in Array
 	dinos.forEach(dino => {
 		dinosGrid.push(
 			gridItem({
 				name: dino.species,
-				image: getImage(images[dino.species.toLowerCase()])
+				image: getImage(images[dino.species.toLowerCase()]),
+				fact: dino.fact
 			})
 		);
 	});
 
 	return addHumanInfoToGrid(humanInfo, dinosGrid);
 };
-
-// Generate Tiles for each Dino in Array
-
-// Add tiles to DOM
-
-// Generate Tiles for each Dino in Array
-
-// Add tiles to DOM
 
 // Remove form from screen
 

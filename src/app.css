@@ -108,10 +108,10 @@ p {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 0.8em 0.8em 1.8em;
-    margin:0;
+    padding: 0.8em 0.4em 0.8em;
+    margin: 0;
     box-sizing: border-box;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 600;
     color: #fff;
 }
