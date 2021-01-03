@@ -20,26 +20,28 @@
 			<h3>How do you compare?</h3>
 		</header>
 		<!-- Form to get user input -->
-		<form id="dino-compare">
-			<div class="form-container">
-				<p>Name:</p>
-				<input id="name" class="form-field__full" type="name" name="name" required />
-				<p>Height</p>
-				<label>Feet: <input id="feet" class="form-field__short" type="number" name="feet" required /></label>
-				<label>inches: <input id="inches" class="form-field__short" type="number" name="inches" required /></label>
-				<p>Weight (lbs):</p>
-				<label><input id="weight" class="form-field__full" type="number" name="weight" required /></label>
-				<p>Diet:</p>
-				<select id="diet" class="form-field__full" name="diet" required>
-					<option>Herbavor</option>
-					<option>Omnivor</option>
-					<option>Carnivor</option>
-				</select>
-				<button id="btn" type="submit">Compare Me!</button>
-			</div>
-		</form>
-		<!-- .grid to attach tiles to -->
-		<main id="grid"></main>
+		<div id="container">
+			<form id="dino-compare">
+				<div class="form-container">
+					<p>Name:</p>
+					<input id="name" class="form-field__full" type="name" name="name" required />
+					<p>Height</p>
+					<label>Feet: <input id="feet" class="form-field__short" type="number" name="feet" required /></label>
+					<label>inches: <input id="inches" class="form-field__short" type="number" name="inches" required /></label>
+					<p>Weight (lbs):</p>
+					<label><input id="weight" class="form-field__full" type="number" name="weight" required /></label>
+					<p>Diet:</p>
+					<select id="diet" class="form-field__full" name="diet" required>
+						<option>Herbavor</option>
+						<option>Omnivor</option>
+						<option>Carnivor</option>
+					</select>
+					<button id="btn" type="submit">Compare Me!</button>
+				</div>
+			</form>
+			<!-- .grid to attach tiles to -->
+			<main id="grid"></main>
+		</div>
 		<footer>
 			<!-- Include information source -->
 			<p class="fine-print">

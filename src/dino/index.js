@@ -1,8 +1,8 @@
 import { Dinos } from "./data.json";
-import {human} from "../app";
 
 const subtract = (a,b) => a - b ;
 
+// random number generator
 function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
 }
@@ -14,18 +14,16 @@ export class Dino {
 		this.weight = weight;
 		this.diet = diet;
 		this.species = species;
+
 		// setting facts for the user
 		this.setFact(humanInput,randomFact);
-		console.log(this.fact);
 	}
 
-	setFact(humanInput,factOptionName) {
-		console.log( factOptionName);
-		const { feet, inches, diet, weight} = humanInput;
+	setFact({ feet, inches, diet, weight} ,factOptionName) {
 		switch (factOptionName) {
 			case 'height':
-				const height = feet + inches;
-				this.fact = this.compareHeightAndSetFact(height)
+				const totalHeight = feet + inches;
+				this.fact = this.compareHeightAndSetFact(totalHeight)
 				break;
 			case 'weight':
 				this.fact = this.compareWeightAndSetFact(weight);
@@ -38,8 +36,9 @@ export class Dino {
 				break;
 		}
 	}
-
+    // compares the height of dino vs human and returns the fact.
 	compareHeightAndSetFact(height) {
+		// Note height in inches.
 		let fact = `Our heights are equal!  ${height} inches`;
 		if (this.height > height) {
 			fact = `I am taller than you by ${this.height - height} inches`;
@@ -51,19 +50,21 @@ export class Dino {
 		return fact;
 	}
 
+	// compares the weight of dino vs human and returns the fact.
 	compareWeightAndSetFact(weight) {
-		//Weight in JSON file is in lbs,
-		let fact = `Our weights are equal! ${weight}`;
+		// NOTE: Weight in JSON file is in lbs.
+		let fact = `Our weights are equal! ${weight} lbs`;
 		if (this.weight > weight) {
-			fact = `I am weigh more than you by ${subtract(this.weight, weight)}`;
+			fact = `I am weigh more than you by ${subtract(this.weight, weight)} lbs`;
 		} else if (this.weight < weight) {
-			fact = `You weigh more than me by ${subtract(weight, this.weight)}`
+			fact = `You weigh more than me by ${subtract(weight, this.weight)} lbs`
 		} else {
 			// swallow 
 		}
 		return fact;
 	}
 
+	// compares the diet of dino vs human and returns the fact.
 	compareDietAndSetFact(diet) {
 		let fact = ' ';
 		if (this.diet === diet) {
@@ -77,16 +78,7 @@ export class Dino {
 
 
 export default function getDinos(humanInput) {
-	console.log("dinos", Dinos);
 	const compareOptions = ["height", "weight","diet"];
-	const randomFact = compareOptions [getRandomInt(3)];
+	const randomFact = compareOptions [getRandomInt(compareOptions.length)];
 	return Dinos.map(dino => new Dino({dino, humanInput,randomFact}));
 }
-// Create Dino Compare Method 1
-// NOTE: Weight in JSON file is in lbs, height in inches.
-
-// Create Dino Compare Method 2
-// NOTE: Weight in JSON file is in lbs, height in inches.
-
-// Create Dino Compare Method 3
-// NOTE: Weight in JSON file is in lbs, height in inches.

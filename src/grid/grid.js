@@ -9,11 +9,8 @@ const getImage = url => {
 const gridItem = ({ name, image,fact }) =>
 	` <div class="grid-item">
 	  	<h3>${name}</h3>
-	  	<picture>
-  			<source media="(min-width:350px)" srcset="${window.location.origin}/${image}">
   			<img src="${window.location.origin}/${image}" alt="Flowers" style="width:auto;">
-		</picture>
-		${fact ? `<p>${fact ? fact: '&nbsp;'}</p>`:  null}
+			${fact ? `<p>${fact ? fact: '&nbsp;'}</p>`:  `&nbsp;`}
 	</div>`;
 
 // inserting human information into the grid.
@@ -37,13 +34,8 @@ export const loadGridItems = (dinos, humanInfo) => {
 				name: dino.species,
 				image: getImage(images[dino.species.toLowerCase()]),
 				fact: dino.fact
-			})
-		);
+			}));
 	});
 
 	return addHumanInfoToGrid(humanInfo, dinosGrid);
 };
-
-// Remove form from screen
-
-// On button click, prepare and display infographic
