@@ -15,7 +15,7 @@ export class Dino {
 		this.diet = diet;
 		this.species = species;
 
-		// identifying birds and other species, birds weigh less than dinos
+		// identifying bird or dino, birds weigh less than dino.
 		if(weight > 1){
 			// setting facts by comparing the user
 			this.setFact(humanInput,randomFact,fact);
