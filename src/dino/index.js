@@ -9,17 +9,23 @@ function getRandomInt(max) {
 
 export class Dino {
 	constructor({dino, humanInput,randomFact}) {
-		const {height, weight,diet,species} = dino;
+		const { height, weight, diet, species, fact } = dino;
 		this.height = height;
 		this.weight = weight;
 		this.diet = diet;
 		this.species = species;
 
-		// setting facts for the user
-		this.setFact(humanInput,randomFact);
+		// identifying birds and other species, birds weigh less than dinos
+		if(weight > 1){
+			// setting facts by comparing the user
+			this.setFact(humanInput,randomFact,fact);
+		} else {
+			// for birds setting fact as it is without comparing.
+			this.fact = fact;
+		}
 	}
 
-	setFact({ feet, inches, diet, weight} ,factOptionName) {
+	setFact({ feet, inches, diet, weight} ,factOptionName,fact) {
 		switch (factOptionName) {
 			case 'height':
 				const totalHeight = feet + inches;
@@ -66,11 +72,11 @@ export class Dino {
 
 	// compares the diet of dino vs human and returns the fact.
 	compareDietAndSetFact(diet) {
-		let fact = ' ';
-		if (this.diet === diet) {
-			fact = `Our diets are same ${diet}`
+		let fact;
+		if (this.diet === diet.toLowerCase()) {
+			fact = `Our diets are same, ${diet}!`
 		} else {
-			fact = `Our diets are different `;
+			fact = `Our diets are different`;
 		}
 		return fact;
 	}

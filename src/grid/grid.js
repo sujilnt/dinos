@@ -6,16 +6,16 @@ const getImage = url => {
 	return url.substring(1);
 };
 
-const gridItem = ({ name, image,fact }) =>
+const createGridItem = ({ name, image,fact }) =>
 	` <div class="grid-item">
 	  	<h3>${name}</h3>
-  			<img src="${window.location.origin}/${image}" alt="Flowers" style="width:auto;">
+  			<img src="${window.location.origin}/${image}" alt="${name}" style="width:auto;">
 			${fact ? `<p>${fact ? fact: '&nbsp;'}</p>`:  `&nbsp;`}
 	</div>`;
 
 // inserting human information into the grid.
-const addHumanInfoToGrid = (human, dinos) => {
-	const humanInformation = gridItem({
+const insertHumanInfoInGrid = (human, dinos) => {
+	const humanInformation = createGridItem({
 		name: human.name,
 		image: getImage(images["human"])
 	});
@@ -30,12 +30,12 @@ export const loadGridItems = (dinos, humanInfo) => {
 	// Generate Tiles for each Dino in Array
 	dinos.forEach(dino => {
 		dinosGrid.push(
-			gridItem({
+			createGridItem({
 				name: dino.species,
 				image: getImage(images[dino.species.toLowerCase()]),
 				fact: dino.fact
 			}));
 	});
 
-	return addHumanInfoToGrid(humanInfo, dinosGrid);
+	return insertHumanInfoInGrid(humanInfo, dinosGrid);
 };

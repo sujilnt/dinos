@@ -31,8 +31,8 @@ const getInputFormValues = inputFormElements => {
 
 // displaying form and hiding the grid.
 const goBack = ()=>{
-	// removing grid and goback button
-	grid.remove();
+	// removing grid items and goback button
+	grid.innerHTML = null;
 	document.getElementById("goBack").remove();
 
 	// displaying and resetting the forms.
